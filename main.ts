@@ -21,7 +21,8 @@ const slackAPI = SlackAPI(token);
 kv.listenQueue(async (msg) => {
   const channel = msg.channel;
   const text = msg.text;
-  await postToChannel(channel, text);
+  const res = await postToChannel(channel, text);
+  console.log("=== " + JSON.stringify(res));
 });
 
 async function postToChannel(channel: string, text: string): Promise<boolean> {
