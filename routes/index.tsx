@@ -6,7 +6,7 @@ export const handler: Handlers = {
   async GET(req, ctx) {
     const url = new URL(req.url);
     const text = url.searchParams.get("text");
-    const channel = url.searchParams.get("text");
+    const channel = url.searchParams.get("channel");
     const delay = Number(url.searchParams.get("delay"));
     await kv.enqueue({ text, channel }, { delay });
     await kv.set(["enqueued"], text);
