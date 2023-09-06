@@ -39,7 +39,7 @@ async function postToChannel(channel: string, text: string): Promise<boolean> {
       },
     ],
   });
-  return res.ok;
+  return res;
 }
 
 await start(manifest, { plugins: [twindPlugin(twindConfig)] });
