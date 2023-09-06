@@ -3,8 +3,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 const kv = await Deno.openKv();
 
 export const handler: Handlers = {
-  async POST(req, ctx) {
-    console.log("=== form");
+  async GET(req, ctx) {
     const url = new URL(req.url);
     const text = url.searchParams.get("text");
     const channel = url.searchParams.get("text");
