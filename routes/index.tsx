@@ -9,7 +9,6 @@ export const handler: Handlers = {
     const channel = url.searchParams.get("channel");
     const delay = Number(url.searchParams.get("delay")) * 1000;
     await kv.enqueue({ text, channel }, { delay });
-    await kv.set(["enqueued"], text);
     return ctx.render({});
   },
 };
