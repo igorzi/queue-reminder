@@ -4,7 +4,6 @@
 /// <reference lib="dom.asynciterable" />
 /// <reference lib="deno.ns" />
 
-import { SlackAPI } from "https://deno.land/x/deno_slack_api@2.1.1/mod.ts";
 import "$std/dotenv/load.ts";
 
 import { start } from "$fresh/server.ts";
