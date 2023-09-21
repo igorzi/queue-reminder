@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { SlackAPI } from "https://deno.land/x/deno_slack_api@2.1.1/mod.ts";
 
 const kv = await Deno.openKv();
 
