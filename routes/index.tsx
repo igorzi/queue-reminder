@@ -39,7 +39,6 @@ export const handler: Handlers = {
   },
 };
 
-
 export default function Page({ data }: PageProps) {
   return (
     <div>
