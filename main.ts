@@ -13,32 +13,4 @@ import manifest from "./fresh.gen.ts";
 import twindPlugin from "$fresh/plugins/twind.ts";
 import twindConfig from "./twind.config.ts";
 
-const kv = await Deno.openKv();
-
-const token = Deno.env.get("SLACK_BOT_TOKEN") as string;
-const slackAPI = SlackAPI(token);
-
-kv.listenQueue(async (msg) => {
-  const channel = msg.channel;
-  const text = msg.text;
-  const res = await postToChannel(channel, text);
-});
-
-async function postToChannel(channel: string, text: string): Promise<boolean> {
-  const res = await slackAPI.chat.postMessage({
-    channel,
-    text,
-    blocks: [
-      {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text,
-        },
-      },
-    ],
-  });
-  return res;
-}
-
 await start(manifest, { plugins: [twindPlugin(twindConfig)] });
