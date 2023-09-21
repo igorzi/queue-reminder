@@ -2,6 +2,32 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 
 const kv = await Deno.openKv();
 
+const token = Deno.env.get("SLACK_BOT_TOKEN") as string;
+const slackAPI = SlackAPI(token);
+
+kv.listenQueue(async (msg) => {
+  const channel = msg.channel;
+  const text = msg.text;
+  const res = await postToChannel(channel, text);
+});
+
+async function postToChannel(channel: string, text: string): Promise<boolean> {
+  const res = await slackAPI.chat.postMessage({
+    channel,
+    text,
+    blocks: [
+      {
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text,
+        },
+      },
+    ],
+  });
+  return res;
+}
+
 export const handler: Handlers = {
   async GET(req, ctx) {
     const url = new URL(req.url);
