@@ -19,8 +19,8 @@ in your message,
 [Channel ID](https://www.wikihow.com/Find-a-Channel-ID-on-Slack-on-PC-or-Mac),
 and delay in seconds:
 
-![]()
+![](https://github.com/igorzi/queue-reminder/blob/main/static/queue-reminder-webui.png?raw=true)
 
 Hit remind. When the time comes, you'll see your message in Slack:
 
-![]()
+![](https://github.com/igorzi/queue-reminder/blob/main/static/queue-reminder-slack.png?raw=true)
